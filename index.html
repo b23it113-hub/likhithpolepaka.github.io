@@ -5,19 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Polepaka Likhith | Portfolio</title>
 
-<!-- ================= INTERNAL CSS ================= -->
 <style>
 
-/* ===== CSS VARIABLES (Clean Color System) ===== */
+/* ================= ROOT VARIABLES ================= */
 :root{
-    --primary:#2563eb;
-    --dark:#0f172a;
-    --light:#f8fafc;
-    --gray:#64748b;
-    --card:#ffffff;
+    --bg:#0b0f19;
+    --card:rgba(255,255,255,0.05);
+    --primary:#7c3aed;
+    --secondary:#06b6d4;
+    --text:#e2e8f0;
+    --muted:#94a3b8;
 }
 
-/* ===== GLOBAL RESET ===== */
+/* ================= GLOBAL ================= */
 *{
     margin:0;
     padding:0;
@@ -27,37 +27,40 @@
 
 body{
     font-family: 'Segoe UI', sans-serif;
-    background:var(--light);
-    color:var(--dark);
+    background:var(--bg);
+    color:var(--text);
     line-height:1.6;
 }
 
 section{
-    padding:80px 10%;
+    padding:100px 10%;
 }
 
-/* ===== SIMPLE FADE ANIMATION ===== */
-@keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(30px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+h2{
+    font-size:30px;
+    margin-bottom:40px;
+    position:relative;
 }
 
-.fade{
-    animation:fadeUp 1s ease forwards;
+/* Accent underline */
+h2::after{
+    content:"";
+    width:60px;
+    height:4px;
+    background:linear-gradient(to right,var(--primary),var(--secondary));
+    position:absolute;
+    bottom:-10px;
+    left:0;
+    border-radius:5px;
 }
 
-/* ===== NAVBAR ===== */
+/* ================= NAV ================= */
 header{
     position:sticky;
     top:0;
-    background:var(--dark);
-    padding:18px 10%;
+    backdrop-filter:blur(10px);
+    background:rgba(0,0,0,0.4);
+    padding:20px 10%;
     z-index:1000;
 }
 
@@ -65,24 +68,23 @@ nav{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    flex-wrap:wrap;
 }
 
 .logo{
-    color:white;
     font-weight:600;
     font-size:20px;
+    letter-spacing:1px;
 }
 
 nav ul{
     list-style:none;
     display:flex;
-    gap:25px;
+    gap:30px;
 }
 
 nav ul li a{
     text-decoration:none;
-    color:white;
+    color:var(--text);
     font-size:14px;
     transition:0.3s;
 }
@@ -91,154 +93,140 @@ nav ul li a:hover{
     color:var(--primary);
 }
 
-/* ===== HOME ===== */
+/* ================= HERO ================= */
 #home{
-    background:linear-gradient(to right,#0f172a,#1e293b);
-    color:white;
-    text-align:center;
-    padding:120px 10%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    min-height:90vh;
+    gap:50px;
 }
 
-#home h1{
-    font-size:42px;
-    margin-bottom:15px;
+.hero-text{
+    flex:1;
+    animation:fadeUp 1s ease forwards;
 }
 
-#home p{
-    max-width:650px;
-    margin:auto;
-    color:#cbd5e1;
+.hero-text h1{
+    font-size:48px;
+    margin-bottom:20px;
 }
 
+.hero-text span{
+    background:linear-gradient(to right,var(--primary),var(--secondary));
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero-text p{
+    color:var(--muted);
+    max-width:500px;
+}
+
+.hero-panel{
+    flex:1;
+    height:300px;
+    border-radius:20px;
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+    filter:blur(100px);
+    opacity:0.5;
+}
+
+/* Button */
 .btn{
     display:inline-block;
-    margin-top:30px;
+    margin-top:25px;
     padding:12px 28px;
-    background:var(--primary);
-    color:white;
+    border-radius:30px;
     text-decoration:none;
-    border-radius:6px;
+    background:linear-gradient(to right,var(--primary),var(--secondary));
+    color:white;
     transition:0.3s;
 }
 
 .btn:hover{
-    transform:translateY(-3px);
-    box-shadow:0 10px 20px rgba(0,0,0,0.2);
+    transform:translateY(-5px);
+    box-shadow:0 10px 25px rgba(0,0,0,0.5);
 }
 
-/* ===== SECTION TITLES ===== */
-.section-title{
-    text-align:center;
-    margin-bottom:50px;
-    font-size:28px;
-}
-
-/* ===== ABOUT ===== */
-#about p{
-    max-width:800px;
-    margin:auto;
-    text-align:center;
-    color:var(--gray);
-}
-
-/* ===== SKILLS ===== */
-.skills-grid{
-    display:flex;
-    flex-wrap:wrap;
-    gap:20px;
-    justify-content:center;
-}
-
-.skill{
+/* ================= GLASS CARD ================= */
+.card{
     background:var(--card);
-    padding:18px 25px;
-    border-radius:8px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.05);
+    padding:25px;
+    border-radius:15px;
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,0.08);
     transition:0.3s;
 }
 
-.skill:hover{
-    transform:translateY(-5px);
+.card:hover{
+    transform:translateY(-8px);
+    border-color:var(--primary);
 }
 
-/* ===== PROJECTS ===== */
-.projects-grid{
+/* ================= SKILLS ================= */
+.skills-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
     gap:25px;
 }
 
-.project{
-    background:var(--card);
-    padding:25px;
-    border-radius:10px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.05);
-    transition:0.3s;
+/* ================= PROJECTS ================= */
+.projects-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
 }
 
-.project:hover{
-    transform:translateY(-8px);
+/* ================= TIMELINE (EDUCATION) ================= */
+.timeline{
+    border-left:3px solid var(--primary);
+    padding-left:20px;
 }
 
-.project p{
-    color:var(--gray);
-    font-size:14px;
+.timeline-item{
+    margin-bottom:30px;
 }
 
-/* ===== EDUCATION & CERTIFICATIONS ===== */
-.info-box{
-    background:var(--card);
-    padding:25px;
-    border-radius:10px;
-    margin-bottom:20px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.05);
-    transition:0.3s;
-}
-
-.info-box:hover{
-    transform:translateY(-5px);
-}
-
-/* ===== CONTACT ===== */
+/* ================= CONTACT ================= */
 #contact{
-    background:var(--dark);
-    color:white;
     text-align:center;
 }
 
 #contact p{
+    color:var(--muted);
     margin:10px 0;
-    color:#cbd5e1;
 }
 
-/* ===== FOOTER ===== */
-footer{
-    text-align:center;
-    padding:20px;
-    font-size:14px;
-    background:#020617;
-    color:#94a3b8;
+/* ================= ANIMATION ================= */
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(40px);}
+    to{opacity:1; transform:translateY(0);}
 }
 
-/* ===== RESPONSIVE ===== */
-@media(max-width:768px){
+/* ================= RESPONSIVE ================= */
+@media(max-width:900px){
 
-    nav{
+    #home{
         flex-direction:column;
-        gap:15px;
+        text-align:center;
     }
 
-    nav ul{
-        flex-wrap:wrap;
-        justify-content:center;
+    .hero-panel{
+        display:none;
     }
 
-    #home h1{
-        font-size:30px;
+    h2::after{
+        left:50%;
+        transform:translateX(-50%);
+    }
+
+    h2{
+        text-align:center;
     }
 
     section{
-        padding:60px 6%;
+        padding:80px 6%;
     }
 }
 
@@ -247,102 +235,91 @@ footer{
 
 <body>
 
-<!-- ================= HEADER ================= -->
+<!-- ================= NAVIGATION ================= -->
 <header>
-    <nav>
-        <div class="logo">Polepaka Likhith</div>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#certifications">Certifications</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+<nav>
+<div class="logo">Polepaka Likhith</div>
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#education">Education</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
 </header>
 
-<!-- ================= HOME ================= -->
-<section id="home" class="fade">
-    <h1>Polepaka Likhith</h1>
-    <p>A passionate Computer Science student focused on building clean, efficient and professional web solutions.</p>
-    <a href="#projects" class="btn">View My Work</a>
+<!-- ================= HERO ================= -->
+<section id="home">
+<div class="hero-text">
+<h1>Hello, I'm <span>Polepaka Likhith</span></h1>
+<p>Computer Science student building clean, modern, and professional web experiences with strong fundamentals in programming and system design.</p>
+<a href="#projects" class="btn">Explore My Work</a>
+</div>
+<div class="hero-panel"></div>
 </section>
 
 <!-- ================= ABOUT ================= -->
-<section id="about" class="fade">
-    <h2 class="section-title">About Me</h2>
-    <p>
-        I am a motivated developer with strong fundamentals in programming, web technologies, and problem solving. 
-        I focus on writing structured, clean, and scalable code while continuously improving my technical skills.
-    </p>
+<section id="about">
+<h2>About Me</h2>
+<div class="card">
+<p>
+Passionate developer focused on structured coding, UI clarity, and performance. 
+I aim to build solutions that are scalable, minimal, and impactful.
+</p>
+</div>
 </section>
 
 <!-- ================= SKILLS ================= -->
-<section id="skills" class="fade">
-    <h2 class="section-title">Skills</h2>
-    <div class="skills-grid">
-        <div class="skill">HTML & CSS</div>
-        <div class="skill">Java</div>
-        <div class="skill">DBMS</div>
-        <div class="skill">Data Structures</div>
-        <div class="skill">Problem Solving</div>
-        <div class="skill">Team Collaboration</div>
-        <div class="skill">Communication</div>
-    </div>
+<section id="skills">
+<h2>Skills</h2>
+<div class="skills-grid">
+<div class="card">HTML & CSS</div>
+<div class="card">Java</div>
+<div class="card">DBMS</div>
+<div class="card">Data Structures</div>
+<div class="card">Problem Solving</div>
+<div class="card">Team Collaboration</div>
+</div>
 </section>
 
 <!-- ================= PROJECTS ================= -->
-<section id="projects" class="fade">
-    <h2 class="section-title">Projects</h2>
-    <div class="projects-grid">
-        <div class="project">
-            <h3>Portfolio Website</h3>
-            <p>Responsive personal portfolio built using HTML and CSS with modern UI.</p>
-        </div>
-        <div class="project">
-            <h3>Student Management System</h3>
-            <p>Java-based application to manage student academic records efficiently.</p>
-        </div>
-        <div class="project">
-            <h3>3D Product Design</h3>
-            <p>Academic project demonstrating product visualization and design principles.</p>
-        </div>
-    </div>
+<section id="projects">
+<h2>Projects</h2>
+<div class="projects-grid">
+<div class="card">
+<h3>Portfolio Website</h3>
+<p>Responsive premium personal portfolio built using pure HTML & CSS.</p>
+</div>
+<div class="card">
+<h3>Student Management System</h3>
+<p>Java-based application to manage student records efficiently.</p>
+</div>
+<div class="card">
+<h3>3D Product Design</h3>
+<p>Academic project demonstrating product modeling and presentation.</p>
+</div>
+</div>
 </section>
 
 <!-- ================= EDUCATION ================= -->
-<section id="education" class="fade">
-    <h2 class="section-title">Education</h2>
-    <div class="info-box">
-        <h3>B.Tech in Computer Science</h3>
-        <p>University Name (2022 - 2026)</p>
-    </div>
-</section>
-
-<!-- ================= CERTIFICATIONS ================= -->
-<section id="certifications" class="fade">
-    <h2 class="section-title">Certifications & Achievements</h2>
-    <div class="info-box">
-        <p>✔ Web Development Certification</p>
-        <p>✔ Java Programming Certification</p>
-        <p>✔ Technical Hackathon Participation</p>
-    </div>
+<section id="education">
+<h2>Education</h2>
+<div class="timeline">
+<div class="timeline-item">
+<h3>B.Tech in Computer Science</h3>
+<p>University Name (2022 – 2026)</p>
+</div>
+</div>
 </section>
 
 <!-- ================= CONTACT ================= -->
-<section id="contact" class="fade">
-    <h2 class="section-title">Contact</h2>
-    <p>Email: your.email@example.com</p>
-    <p>Phone: +91 XXXXX XXXXX</p>
-    <p>LinkedIn: linkedin.com/in/yourprofile</p>
+<section id="contact">
+<h2>Contact</h2>
+<p>Email: your.email@example.com</p>
+<p>LinkedIn: linkedin.com/in/yourprofile</p>
+<p>Phone: +91 XXXXX XXXXX</p>
 </section>
-
-<!-- ================= FOOTER ================= -->
-<footer>
-    © 2026 Polepaka Likhith. All Rights Reserved.
-</footer>
 
 </body>
 </html>
