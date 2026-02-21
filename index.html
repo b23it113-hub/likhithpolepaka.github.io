@@ -4,135 +4,160 @@
     <title>The Amazing Spider-Man | Portfolio</title>
     <style>
         *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: Arial, sans-serif;
-    scroll-behavior:smooth;
-}
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family: Arial, sans-serif;
+            scroll-behavior:smooth;
+        }
 
-body{
-    background:#0d0d0d;
-    color:white;
-    text-align:center;
-}
+        body{
+            background:#0d0d0d;
+            color:white;
+            text-align:center;
+        }
 
-/* HEADER */
-header{
-    background: linear-gradient(to right,#b30000,#001f66);
-    padding:70px 20px;
-    animation: slideDown 1.2s ease;
-}
+        /* HEADER */
+        header{
+            background: linear-gradient(to right,#b30000,#001f66);
+            padding:70px 20px;
+            animation: slideDown 1.2s ease;
+        }
 
-@keyframes slideDown{
-    from{
-        transform: translateY(-100px);
-        opacity:0;
-    }
-    to{
-        transform: translateY(0);
-        opacity:1;
-    }
-}
+        header img{
+            width:180px;
+            margin-top:20px;
+            border-radius:10px;
+            box-shadow:0 0 20px red;
+        }
 
-header h1{
-    font-size:42px;
-    letter-spacing:2px;
-}
+        @keyframes slideDown{
+            from{
+                transform: translateY(-100px);
+                opacity:0;
+            }
+            to{
+                transform: translateY(0);
+                opacity:1;
+            }
+        }
 
-header p{
-    margin-top:15px;
-    font-size:18px;
-    color:#ddd;
-}
+        header h1{
+            font-size:42px;
+            letter-spacing:2px;
+        }
 
-/* BUTTON */
-.btn{
-    display:inline-block;
-    margin-top:20px;
-    padding:10px 25px;
-    background:#0066ff;
-    color:white;
-    text-decoration:none;
-    border-radius:25px;
-    transition:0.4s;
-}
+        header p{
+            margin-top:15px;
+            font-size:18px;
+            color:#ddd;
+        }
 
-.btn:hover{
-    background:#ff0000;
-    box-shadow:0 0 15px red;
-    transform:scale(1.1);
-}
+        /* BUTTON */
+        .btn{
+            display:inline-block;
+            margin-top:20px;
+            padding:10px 25px;
+            background:#0066ff;
+            color:white;
+            text-decoration:none;
+            border-radius:25px;
+            transition:0.4s;
+        }
 
-/* SECTIONS */
-section{
-    padding:60px 20px;
-    animation: fadeIn 1.5s ease;
-}
+        .btn:hover{
+            background:#ff0000;
+            box-shadow:0 0 15px red;
+            transform:scale(1.1);
+        }
 
-@keyframes fadeIn{
-    from{
-        opacity:0;
-        transform: translateY(40px);
-    }
-    to{
-        opacity:1;
-        transform: translateY(0);
-    }
-}
+        /* SECTIONS */
+        section{
+            padding:60px 20px;
+            animation: fadeIn 1.5s ease;
+        }
 
-.about{
-    background:#141414;
-}
+        @keyframes fadeIn{
+            from{
+                opacity:0;
+                transform: translateY(40px);
+            }
+            to{
+                opacity:1;
+                transform: translateY(0);
+            }
+        }
 
-.powers{
-    background:#1c1c1c;
-}
+        .about{
+            background:#141414;
+        }
 
-.power-box{
-    display:inline-block;
-    background:#b30000;
-    padding:15px 25px;
-    margin:10px;
-    border-radius:10px;
-    transition:0.4s;
-}
+        .powers{
+            background:#1c1c1c;
+        }
 
-.power-box:hover{
-    background:#0066ff;
-    transform:scale(1.15) rotate(3deg);
-    box-shadow:0 0 15px #0066ff;
-}
+        .power-box{
+            display:inline-block;
+            background:#b30000;
+            padding:15px 25px;
+            margin:10px;
+            border-radius:10px;
+            transition:0.4s;
+        }
 
-.movies{
-    background:#141414;
-}
+        .power-box:hover{
+            background:#0066ff;
+            transform:scale(1.15) rotate(3deg);
+            box-shadow:0 0 15px #0066ff;
+        }
 
-.movie-card{
-    background:#262626;
-    width:260px;
-    margin:15px auto;
-    padding:20px;
-    border-radius:10px;
-    transition:0.4s;
-}
+        .movies{
+            background:#141414;
+        }
 
-.movie-card:hover{
-    background:#b30000;
-    transform:scale(1.08);
-    box-shadow:0 0 20px red;
-}
+        .movie-card{
+            background:#262626;
+            width:260px;
+            margin:15px auto;
+            padding:20px;
+            border-radius:10px;
+            transition:0.4s;
+        }
 
-.villains{
-    background:#1c1c1c;
-}
+        .movie-card img{
+            width:100%;
+            border-radius:10px;
+            margin-bottom:10px;
+        }
 
-footer{
-    background:black;
-    padding:15px;
-    font-size:14px;
-    color:#aaa;
-}
+        .movie-card:hover{
+            background:#b30000;
+            transform:scale(1.08);
+            box-shadow:0 0 20px red;
+        }
+
+        .villains{
+            background:#1c1c1c;
+        }
+
+        .villains img{
+            width:120px;
+            margin:15px;
+            border-radius:10px;
+            transition:0.4s;
+        }
+
+        .villains img:hover{
+            transform:scale(1.1);
+            box-shadow:0 0 15px #0066ff;
+        }
+
+        footer{
+            background:black;
+            padding:15px;
+            font-size:14px;
+            color:#aaa;
+        }
     </style>
 </head>
 
@@ -142,6 +167,8 @@ footer{
     <h1>The Amazing Spider-Man</h1>
     <p>Peter Parker | Friendly Neighborhood Superhero</p>
     <a href="#contact" class="btn">Join The Mission</a>
+    <br>
+    <img src="https://upload.wikimedia.org/wikipedia/en/0/02/The_Amazing_Spider-Man_theatrical_poster.jpeg" alt="Spider-Man">
 </header>
 
 <section class="about">
@@ -167,11 +194,13 @@ footer{
     <h2>Movie Appearances</h2>
 
     <div class="movie-card">
+        <img src="https://upload.wikimedia.org/wikipedia/en/0/02/The_Amazing_Spider-Man_theatrical_poster.jpeg" alt="Amazing Spider-Man 2012">
         <h3>The Amazing Spider-Man (2012)</h3>
         <p>Battle against The Lizard.</p>
     </div>
 
     <div class="movie-card">
+        <img src="https://upload.wikimedia.org/wikipedia/en/7/7a/The_Amazing_Spider-Man_2_poster.jpg" alt="Amazing Spider-Man 2">
         <h3>The Amazing Spider-Man 2 (2014)</h3>
         <p>Fought Electro & Green Goblin.</p>
     </div>
@@ -179,6 +208,11 @@ footer{
 
 <section class="villains">
     <h2>Main Villains</h2>
+
+    <img src="https://upload.wikimedia.org/wikipedia/en/3/3c/Lizard_%28Curt_Connors%29.jpg" alt="Lizard">
+    <img src="https://upload.wikimedia.org/wikipedia/en/6/6e/Electro_%28Max_Dillon%29.jpg" alt="Electro">
+    <img src="https://upload.wikimedia.org/wikipedia/en/2/2f/Green_Goblin_%28Norman_Osborn%29.jpg" alt="Green Goblin">
+
     <p>The Lizard | Electro | Green Goblin</p>
 </section>
 
