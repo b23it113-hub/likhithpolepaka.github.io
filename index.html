@@ -1,229 +1,301 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>The Amazing Spider-Man | Portfolio</title>
+    <meta charset="UTF-8">
+    <title>Polepaka Likhith | Portfolio</title>
+
+    <!-- ================= INTERNAL CSS ================= -->
     <style>
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-            font-family: Arial, sans-serif;
-            scroll-behavior:smooth;
+        /* ===== RESET & GLOBAL STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
-        body{
-            background:#0d0d0d;
-            color:white;
-            text-align:center;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f6f9;
+            color: #333;
         }
 
-        /* HEADER */
-        header{
-            background: linear-gradient(to right,#b30000,#001f66);
-            padding:70px 20px;
-            animation: slideDown 1.2s ease;
+        h1, h2, h3 {
+            margin-bottom: 15px;
         }
 
-        header img{
-            width:180px;
-            margin-top:20px;
-            border-radius:10px;
-            box-shadow:0 0 20px red;
+        section {
+            padding: 60px 10%;
         }
 
-        @keyframes slideDown{
-            from{
-                transform: translateY(-100px);
-                opacity:0;
+        /* ===== NAVIGATION ===== */
+        nav {
+            background: #111827;
+            padding: 15px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+        }
+
+        nav h2 {
+            color: #ffffff;
+            font-size: 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #3b82f6;
+        }
+
+        /* ===== HOME SECTION ===== */
+        #home {
+            background: linear-gradient(to right, #111827, #1f2937);
+            color: white;
+            text-align: center;
+            padding: 120px 10%;
+        }
+
+        #home h1 {
+            font-size: 40px;
+        }
+
+        #home p {
+            margin-top: 20px;
+            font-size: 18px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 10px 20px;
+            background: #3b82f6;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #2563eb;
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        #about {
+            background: white;
+        }
+
+        #about p {
+            max-width: 700px;
+        }
+
+        /* ===== SKILLS SECTION ===== */
+        #skills {
+            background: #f9fafb;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .skill-box {
+            background: white;
+            padding: 15px 20px;
+            border-radius: 6px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            flex: 1 1 200px;
+            transition: 0.3s;
+        }
+
+        .skill-box:hover {
+            transform: translateY(-5px);
+        }
+
+        /* ===== PROJECTS SECTION ===== */
+        #projects {
+            background: white;
+        }
+
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: #f9fafb;
+            padding: 20px;
+            border-radius: 8px;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* ===== EDUCATION & CERTIFICATIONS ===== */
+        .info-box {
+            background: #f9fafb;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+
+        .info-box:hover {
+            transform: translateY(-5px);
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        #contact {
+            background: #111827;
+            color: white;
+            text-align: center;
+        }
+
+        #contact p {
+            margin: 10px 0;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #0f172a;
+            color: #aaa;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
             }
-            to{
-                transform: translateY(0);
-                opacity:1;
+
+            #home h1 {
+                font-size: 28px;
             }
         }
 
-        header h1{
-            font-size:42px;
-            letter-spacing:2px;
-        }
-
-        header p{
-            margin-top:15px;
-            font-size:18px;
-            color:#ddd;
-        }
-
-        /* BUTTON */
-        .btn{
-            display:inline-block;
-            margin-top:20px;
-            padding:10px 25px;
-            background:#0066ff;
-            color:white;
-            text-decoration:none;
-            border-radius:25px;
-            transition:0.4s;
-        }
-
-        .btn:hover{
-            background:#ff0000;
-            box-shadow:0 0 15px red;
-            transform:scale(1.1);
-        }
-
-        /* SECTIONS */
-        section{
-            padding:60px 20px;
-            animation: fadeIn 1.5s ease;
-        }
-
-        @keyframes fadeIn{
-            from{
-                opacity:0;
-                transform: translateY(40px);
-            }
-            to{
-                opacity:1;
-                transform: translateY(0);
-            }
-        }
-
-        .about{
-            background:#141414;
-        }
-
-        .powers{
-            background:#1c1c1c;
-        }
-
-        .power-box{
-            display:inline-block;
-            background:#b30000;
-            padding:15px 25px;
-            margin:10px;
-            border-radius:10px;
-            transition:0.4s;
-        }
-
-        .power-box:hover{
-            background:#0066ff;
-            transform:scale(1.15) rotate(3deg);
-            box-shadow:0 0 15px #0066ff;
-        }
-
-        .movies{
-            background:#141414;
-        }
-
-        .movie-card{
-            background:#262626;
-            width:260px;
-            margin:15px auto;
-            padding:20px;
-            border-radius:10px;
-            transition:0.4s;
-        }
-
-        .movie-card img{
-            width:100%;
-            border-radius:10px;
-            margin-bottom:10px;
-        }
-
-        .movie-card:hover{
-            background:#b30000;
-            transform:scale(1.08);
-            box-shadow:0 0 20px red;
-        }
-
-        .villains{
-            background:#1c1c1c;
-        }
-
-        .villains img{
-            width:120px;
-            margin:15px;
-            border-radius:10px;
-            transition:0.4s;
-        }
-
-        .villains img:hover{
-            transform:scale(1.1);
-            box-shadow:0 0 15px #0066ff;
-        }
-
-        footer{
-            background:black;
-            padding:15px;
-            font-size:14px;
-            color:#aaa;
-        }
     </style>
 </head>
-
 <body>
 
-<header>
-    <h1>The Amazing Spider-Man</h1>
-    <p>Peter Parker | Friendly Neighborhood Superhero</p>
-    <a href="#contact" class="btn">Join The Mission</a>
-    <br>
-    <img src="https://upload.wikimedia.org/wikipedia/en/0/02/The_Amazing_Spider-Man_theatrical_poster.jpeg" alt="Spider-Man">
-</header>
+<!-- ================= NAVIGATION BAR ================= -->
+<nav>
+    <h2>Polepaka Likhith</h2>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
 
-<section class="about">
-    <h2>About Peter Parker</h2>
+<!-- ================= HOME SECTION ================= -->
+<section id="home">
+    <h1>Hi, I'm Polepaka Likhith</h1>
+    <p>A passionate Web Developer and Computer Science student focused on building clean, efficient, and scalable digital solutions.</p>
+    <a href="#projects" class="btn">View My Work</a>
+</section>
+
+<!-- ================= ABOUT SECTION ================= -->
+<section id="about">
+    <h2>About Me</h2>
     <p>
-        Bitten by a genetically modified spider at Oscorp,
-        Peter Parker gained extraordinary powers.
-        Balancing life as a student and a superhero,
-        he protects New York City from dangerous threats.
+        I am a motivated Computer Science student with strong interest in Web Development, Programming, and Software Engineering.
+        I enjoy solving real-world problems through clean code and structured design.
+        Currently working on academic and personal projects to enhance my technical expertise.
     </p>
 </section>
 
-<section class="powers">
-    <h2>Super Powers</h2>
-    <div class="power-box">Wall Crawling</div>
-    <div class="power-box">Spider Sense</div>
-    <div class="power-box">Super Strength</div>
-    <div class="power-box">Web Shooting</div>
-    <div class="power-box">Agility & Reflexes</div>
-</section>
-
-<section class="movies">
-    <h2>Movie Appearances</h2>
-
-    <div class="movie-card">
-        <img src="https://upload.wikimedia.org/wikipedia/en/0/02/The_Amazing_Spider-Man_theatrical_poster.jpeg" alt="Amazing Spider-Man 2012">
-        <h3>The Amazing Spider-Man (2012)</h3>
-        <p>Battle against The Lizard.</p>
-    </div>
-
-    <div class="movie-card">
-        <img src="https://upload.wikimedia.org/wikipedia/en/7/7a/The_Amazing_Spider-Man_2_poster.jpg" alt="Amazing Spider-Man 2">
-        <h3>The Amazing Spider-Man 2 (2014)</h3>
-        <p>Fought Electro & Green Goblin.</p>
+<!-- ================= SKILLS SECTION ================= -->
+<section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-container">
+        <div class="skill-box"><strong>HTML & CSS</strong></div>
+        <div class="skill-box"><strong>Java</strong></div>
+        <div class="skill-box"><strong>Data Structures</strong></div>
+        <div class="skill-box"><strong>DBMS</strong></div>
+        <div class="skill-box"><strong>Problem Solving</strong></div>
+        <div class="skill-box"><strong>Team Collaboration</strong></div>
+        <div class="skill-box"><strong>Communication Skills</strong></div>
     </div>
 </section>
 
-<section class="villains">
-    <h2>Main Villains</h2>
-
-    <img src="https://upload.wikimedia.org/wikipedia/en/3/3c/Lizard_%28Curt_Connors%29.jpg" alt="Lizard">
-    <img src="https://upload.wikimedia.org/wikipedia/en/6/6e/Electro_%28Max_Dillon%29.jpg" alt="Electro">
-    <img src="https://upload.wikimedia.org/wikipedia/en/2/2f/Green_Goblin_%28Norman_Osborn%29.jpg" alt="Green Goblin">
-
-    <p>The Lizard | Electro | Green Goblin</p>
+<!-- ================= PROJECTS SECTION ================= -->
+<section id="projects">
+    <h2>Projects</h2>
+    <div class="projects-container">
+        <div class="project-card">
+            <h3>Portfolio Website</h3>
+            <p>A responsive personal portfolio built using HTML and CSS.</p>
+        </div>
+        <div class="project-card">
+            <h3>Student Management System</h3>
+            <p>Java-based system to manage student records and operations.</p>
+        </div>
+        <div class="project-card">
+            <h3>3D Product Showcase</h3>
+            <p>Interactive 3D product design created for academic project.</p>
+        </div>
+    </div>
 </section>
 
+<!-- ================= EDUCATION SECTION ================= -->
+<section id="education">
+    <h2>Education</h2>
+    <div class="info-box">
+        <h3>Bachelor of Technology (B.Tech) in Computer Science</h3>
+        <p>University Name - 2022 to 2026</p>
+    </div>
+</section>
+
+<!-- ================= CERTIFICATIONS SECTION ================= -->
+<section id="certifications">
+    <h2>Certifications & Achievements</h2>
+    <div class="info-box">
+        <p>✔ Web Development Certification</p>
+        <p>✔ Java Programming Certification</p>
+        <p>✔ Participation in Technical Hackathons</p>
+    </div>
+</section>
+
+<!-- ================= CONTACT SECTION ================= -->
 <section id="contact">
-    <h2>Contact</h2>
-    <p>Location: New York City</p>
-    <p>"With Great Power Comes Great Responsibility"</p>
+    <h2>Contact Me</h2>
+    <p>Email: your.email@example.com</p>
+    <p>Phone: +91 XXXXX XXXXX</p>
+    <p>LinkedIn: linkedin.com/in/yourprofile</p>
 </section>
 
+<!-- ================= FOOTER ================= -->
 <footer>
-    © 2026 Marvel Inspired Portfolio | Designed by Peter Parker
+    © 2026 Polepaka Likhith. All Rights Reserved.
 </footer>
 
 </body>
